@@ -1,0 +1,51 @@
+.reaveal-box {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-box__inner {
+  animation: revealBefore 1s cubic-bezier(.19, 1, .22, 1) 0s forwards;
+  display: inline-block;
+  position: relative;
+}
+.reveal-box__inner::after {
+  content: '';
+  animation: revealAfter 1s cubic-bezier(.19, 1, .22, 1) 0.4s forwards;
+  background: #333;
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: right;
+  width: 100%;
+  z-index: 1;
+  transform: scale(1,1);
+}
+
+.reveal-box__image {
+  height: auto;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@keyframes revealBefore {
+  0% {
+      transform: translate(-100%, 0);
+  }
+  100% {
+      transform: translate(0,0);
+  }
+}
+
+@keyframes revealAfter {
+  0% {
+      transform: scale(1,1);
+  }
+  60% {
+    transform: scale(0,1);
+  }
+  100% {
+    transform: scale(0,1);
+  }
+}
