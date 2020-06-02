@@ -1,0 +1,144 @@
+@keyframes white_filter {
+  0% {
+      left: -100%;
+  }
+  100% {
+      left: 0;
+  }
+}
+@keyframes black_filter {
+  0% {
+      left: 100%;
+  }
+  100% {
+      left: 0;
+  }
+}
+@keyframes white_filter_m {
+  0% {
+      left: -100%;
+  }
+  100% {
+      left: calc(30% - 40px);
+  }
+}
+@keyframes char_down{
+  0% {
+      transform: translateY(-30px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+@keyframes char_up {
+  0% {
+      transform: translateY(30px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+body {
+  background-color: #ddd;
+}
+.l_h {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: #000;
+  overflow: hidden;
+}
+.l_h::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255,255,255);
+  animation: white_filter 1s ease-out 0s forwards;
+}
+.l_h::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  animation: black_filter 1.2s ease-out 1.2s forwards;
+}
+.l_h__in {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  animation: white_filter 1s ease-out 2.4s forwards;
+}
+.l_h__in::before {
+  content: 'CSS Animation';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 2;
+}
+.l_h__in::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(30% - 40px);
+  width: 80px;
+  height: 80px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  background-color: #fff;;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+.l_word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.l_word::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.l_word__char{
+  position: relative;
+  display: block;
+  float: left;
+  font-size: 80px;
+}
+.l_word__char:nth-child(1) {
+  transform: translateY(-30px);
+  opacity: 0;
+  animation: char_down 1s ease-out 3.5s forwards;
+}
+.l_word__char:nth-child(2) {
+  transform: translateY(30px);
+  opacity: 0;
+  animation: char_up 1s ease-out 4.5s forwards;
+}
+.l_word__char:nth-child(3) {
+  transform: translateY(-30px);
+  opacity: 0;
+  animation: char_down 1s ease-out 5.5s forwards;
+}
+.l_word__char:nth-child(4) {
+  transform: translateY(30px);
+  opacity: 0;
+  animation: char_up 1s ease-out 6.5s forwards;
+}
